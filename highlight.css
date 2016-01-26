@@ -1,0 +1,87 @@
+
+
+body {
+    font-family: monospace;
+}
+
+
+div {
+    padding: 0.5em;
+    margin: 0.5em;
+    display: table;
+}
+
+.thread {
+    border: 1px solid black;
+    float: left;
+}
+
+.statement>.statement {
+    padding: 0.25em 0;
+    margin: 1.5em 0 0 0;
+}
+
+.statement:hover {
+    border: 1px dotted black;
+}
+
+.statement:hover, .statement .statement:hover {
+    background-color:rgba(255,0,0,0.1);
+}
+
+
+p{
+    padding: 0;
+    background: lightgray;
+}
+
+p, .label {
+    font-family: Times;
+}
+
+.expression {
+    padding: 0 3px;
+    background: #e2ffe2;
+    border: 1px solid green;
+    margin: 2px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+
+.expression>.expression {
+    margin: 0;
+    padding: 0;
+}
+
+.expression .expression {
+    border: 0;
+}
+
+
+.expression:hover, .expression:hover .expression {
+    border: 1px solid blue;
+    border-top: none;
+    margin: 2px;
+    margin-top: 4px;
+    padding: 0 3px;
+    background-color:rgba(255,255,255,0.5);
+}
+
+.expression:before {
+    content: "";
+    position: absolute;
+    
+}
+
+.comment {
+    color: gray;
+    background: lightgray;
+}
+
+
+.startcircle{display:inline-block; margin: 0px; padding: 0px;
+width:10px;height:10px;border-radius:10px;font-size:10px;color:#fff;line-height:10px;text-align:center;background:#000}
+
+.endcircle{display:inline-block; margin: 0px; 
+width:10px;height:10px;border-radius:10px;font-size:10px;color:#fff;line-height:10px;text-align:center;border:1px solid #000}
