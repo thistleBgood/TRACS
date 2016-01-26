@@ -21,8 +21,14 @@ A simple means of annotating code has been developed by Professor Quintin Cutts 
 
     Entries in all of these areas are labelled with a number indicating which step in the execution they happened on.
 
-Although the annotation system is easy to do with pen and paper, it can be messy and are hard to reproduce as a set exercise. Electronic solutions are cleaner, but take significantly more effort to create.
+Although the annotation system is easy to do with pen and paper, it can be messy and are hard to reproduce as a set exercise. Electronic solutions are cleaner, but take significantly more effort to create. For example, the example image below took over 30 minutes to create.
+
+![Fully annotated example](images/example1.png)
 
 Enter this project.
 
-I have been tasked with developing a web-based system to facilitate these code annotations. 
+I have been tasked with developing a web-based system to facilitate these code annotations. The basic structure can be understood as follows:
+
+![UML Diagram](images/layers.png)
+
+We first import a program file and then select a series of ranges of text. We then identify the possible paths given by the static control flow, before moving on to the actual path taken in the dynamic control flow.
