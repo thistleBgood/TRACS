@@ -1,0 +1,56 @@
+<html>
+	<style>
+		body {
+			font-size: 2em;
+		}
+		
+		div {
+			margin: 1px;
+			border-right: 0;
+		}
+		
+		.child {
+			padding: 1em;
+			background: rgba(0, 0, 128, 0.5);
+			text-align: center;
+			float: left;
+		}	
+	
+		#parent {
+			border: 0;
+		}
+		
+		#plus {
+			background: rgba(0, 128, 0, 0.5);
+			float: left;
+			padding: 1em;
+			border: 1px dotted black;
+		}
+	</style>
+	
+	<script>	
+		var count = 0;
+	
+		function addNewDiv() {
+			var newDiv = document.createElement('div');
+			newDiv.setAttribute("class", "child");
+			newDiv.setAttribute("id", ++count);
+			newDiv.setAttribute("onclick", "removeDiv(" + count + ")")
+			newDiv.appendChild(document.createTextNode(count));
+			document.getElementById("parent").appendChild(newDiv);
+			console.log("Added new node " + count + " at " + new Date().toLocaleString());
+		}
+		
+		function removeDiv(childNo) {
+			parent = document.getElementById("parent")
+			child = document.getElementById(childNo)
+			console.log("Removing node " + child.getAttribute("id") + " at " + new Date().toLocaleString())
+			parent.removeChild(child);
+		}
+	</script>
+	
+	<body>
+		<div id="parent"></div>
+		<div id="plus" onclick="addNewDiv()">+</div>
+	</body>
+</html>
