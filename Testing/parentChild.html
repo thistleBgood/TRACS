@@ -28,9 +28,7 @@
 		}
 	</style>
 	
-	<script>	
-		var count = 0;
-	
+	<script>				
 		function addNewDiv() {
 			var newDiv = document.createElement('div');
 			newDiv.setAttribute("class", "child");
@@ -39,6 +37,19 @@
 			newDiv.appendChild(document.createTextNode(count));
 			document.getElementById("parent").appendChild(newDiv);
 			console.log("Added new node " + count + " at " + new Date().toLocaleString());
+			nodes.push(count)
+			localStorage.setItem("count", count)
+			localStorage.setItem("nodes", nodes)
+		}
+		
+		function addOldDiv(childNo) {
+			var oldDiv = document.createElement('div');
+			oldDiv.setAttribute("class", "child");
+			oldDiv.setAttribute("id", childNo);
+			oldDiv.setAttribute("onclick", "removeDiv(" + childNo + ")")
+			oldDiv.appendChild(document.createTextNode(childNo));
+			document.getElementById("parent").appendChild(oldDiv);
+			
 		}
 		
 		function removeDiv(childNo) {
@@ -47,10 +58,40 @@
 			console.log("Removing node " + child.getAttribute("id") + " at " + new Date().toLocaleString())
 			parent.removeChild(child);
 		}
+	
+		var count = localStorage.getItem("count")
+	
+		if (count == null) {
+			count = 0
+		}
+		
+		var nodes = localStorage.getItem("nodes");
+		
+		if (nodes == null) {
+			nodes = [];
+		} else {
+			nodes = nodes.split(",");
+		}
+		
+		function load() {
+			for (item in nodes) {
+				addOldDiv(nodes[item]);
+			}
+		}
+		
+		function clear() {
+			nodes = []
+			count = 0
+			localStorage.clear();
+
+		}
 	</script>
 	
 	<body>
 		<div id="parent"></div>
 		<div id="plus" onclick="addNewDiv()">+</div>
+		<hr>
+		<button id="load" onclick="load()">Load</button>
+		<button id="clear" onclick="clear()">Clear</button>
 	</body>
 </html>
