@@ -1,0 +1,45 @@
+<html>
+
+	<head>
+		<link rel=StyleSheet href="highlight2.css" type="text/css"></link>
+		<script type="text/javascript" src="highlight2.js"></script>
+	</head>
+
+	<div class="code_area">
+		<div>
+			<input type="radio" name="highlight_selection" value="statement">Statement</input>
+			<input type="radio" name="highlight_selection" value="expression"  checked="checked">Expression</input>
+			<button id="annotate" onclick="add_annotation()">Annotate</button>
+		</div>
+		<div class="thread">
+			<p>starter.py</p>
+			a = 3<br>
+			b = 4<br>
+			while a > 0:<br>
+			&nbsp&nbsp&nbsp&nbspb = b + 1<br>
+			&nbsp&nbsp&nbsp&nbspa = a - 1<br>
+			print b
+		</div>
+		
+		<div class="thread">
+			<p>annotated.py</p><!-- nb: br tags have been removed for the most part -->
+			<div class="statement">a = <div class="expression">3</div></div>
+			<div class="statement">b = <div class="expression">4</div></div>
+			<div class="statement">while <div class="expression"><div class="expression">a</div> &gt; <div class="expression">0</div></div>:<br>
+			<div class="statement">&nbsp;&nbsp;&nbsp;&nbsp;b = <div class="expression"><div class="expression">b</div> + <div class="expression">1</div></div></div>
+			<div class="statement">&nbsp;&nbsp;&nbsp;&nbsp;a = <div class="expression"><div class="expression">a</div> - <div class="expression">1</div></div></div></div>
+			<div class="statement">print <div class="expression">b</div></div>
+		</div>
+	</div>
+	
+	<div id="tt1" class="trace_table">
+		<div class="plus" onclick="addNewParent()">+</div>
+		
+		<div class="parent"></div>
+		<div id="plus" onclick="addNewDiv()">+</div>
+		<hr>
+		<button id="load" onclick="load()">Load</button>
+		<button id="clear" onclick="clear()">Clear</button>
+	</div>
+
+</html>
